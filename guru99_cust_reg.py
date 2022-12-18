@@ -68,7 +68,7 @@ class Pom():
 
         xpath_of_email = '//input[@name="emailid"]'
         input_email = driver.find_element(By.XPATH, xpath_of_email)
-        input_email.send_keys("guru@k11.com")
+        input_email.send_keys("guru@k16.com")
 
         xpath_of_password1 = '//input[@name="password"]'
         input_password1 = driver.find_element(By.XPATH, xpath_of_password1)
