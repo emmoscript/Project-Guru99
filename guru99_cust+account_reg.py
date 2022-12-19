@@ -1,4 +1,4 @@
-# Logging in and add new customer account in guru99 webpage
+# Logging in and add new customer and account in guru99 webpage
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
