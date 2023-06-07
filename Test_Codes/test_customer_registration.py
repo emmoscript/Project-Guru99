@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from Test_Data import registration_data
 import pytest
+import time
 
 
 class TestRegistration():
@@ -57,4 +58,4 @@ class TestRegistration():
         response = result.text
         assert response == "Customer Registered Successfully!!!"
         print("SUCCESS # CUSTOMER {customername} REGISTERED SUCCESSFULLY".format(customername=registration_data.RegistrationData.input_customer_name))
-       
+        time.sleep(4)

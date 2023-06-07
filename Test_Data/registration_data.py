@@ -11,15 +11,14 @@ class RegistrationData:
     input_state = "Tamilnadu"
     input_pin = "600052"
     input_mobile_number  = "26867856"
-    input_email = "guru@k516.com"
+    input_email = "gurub@k78516.com"
     input_password1 = "basil"
     frame1 = "google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0"
     frame2 = "ad_iframe"
 
 class AccountData:
-    firstname = "Ajay"
-    lastname = "Shankar"
-
+    customer_id = "generated_customer_id"
+    input_initial_deposit = "600"
 
 # Python Class for Selenium Selectors
 class ElementLocators:
@@ -40,3 +39,13 @@ class ElementLocators:
     xpath_of_password1 = '//input[@name="password"]'
     xpath_of_submit = '//input[@type="submit"]'
     xpath_of_success = '//td[@colspan="2"]//p[@class="heading3"]'
+
+    xpath_of_generated_id = '//*[@id="customer"]/tbody/tr[4]/td[2]'
+    xpath_of_new_account = '//a[@href="addAccount.php"]'
+    xpath_of_customer_id = '//input[@name="cusid"]'
+    xpath_of_account_type = '//select[@name="selaccount"]'
+    xpath_of_current_account = '//option[@value="Current"]'
+    xpath_of_initial_deposit = '//input[@name="inideposit"]'
+    xpath_of_submit1 = '//input[@name="button2"]'
+    xpath_of_account_successful = '//p[@class="heading3"]'
+
