@@ -19,7 +19,7 @@ class TestAccountReg():
     def test_account_reg(self, launch_driver):
         self.driver.get(self.url)
 
-        # login to webpage
+        # login to webpage using username and password
         self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_username).send_keys(registration_data.RegistrationData.input_username)
         self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_password).send_keys(registration_data.RegistrationData.input_password)
 
@@ -63,10 +63,10 @@ class TestAccountReg():
         generated_customer_id = gen_id.text
 
         # adding a new account inside our customer
-        # click new account tab
+        # click the new account tab
         click_new_account = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_new_account).click()
 
-        # # click skip ads button
+        # # click skip ads button (ignore if it is not necessary)
         # frame1 = driver.find_element(By.ID, "google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0")
         # driver.switch_to.frame(frame1)
         # frame2 = driver.find_element(By.ID, "ad_iframe")
