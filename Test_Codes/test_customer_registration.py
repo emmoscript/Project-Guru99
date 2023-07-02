@@ -20,7 +20,7 @@ class TestRegistration():
     def test_cust_reg(self, launch_driver):
         self.driver.get(self.url)
 
-        # login to webpage
+        # login to webpage with username and password
         self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_username).send_keys(registration_data.RegistrationData.input_username)
         self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_password).send_keys(registration_data.RegistrationData.input_password)
 
