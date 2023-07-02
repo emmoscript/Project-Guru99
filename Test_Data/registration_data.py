@@ -1,4 +1,5 @@
 # This file consists of Test Information like username, password, XPATH etc
+# Create separate classes for all data and locators
 
 # Python Class for Username and Password
 class RegistrationData:
