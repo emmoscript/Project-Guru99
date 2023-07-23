@@ -66,7 +66,7 @@ class TestAccountReg():
         # click the new account tab
         click_new_account = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_new_account).click()
 
-        # # click skip ads button (ignore if it is not necessary)
+        # click skip ads button (ignore if it is not necessary)
         # frame1 = driver.find_element(By.ID, "google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0")
         # driver.switch_to.frame(frame1)
         # frame2 = driver.find_element(By.ID, "ad_iframe")
