@@ -56,6 +56,7 @@ class TestRegistration():
         # verify successful customer registration
         result = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_success)
         response = result.text
+        
         assert response == "Customer Registered Successfully!!!"
         print("SUCCESS # CUSTOMER {customername} REGISTERED SUCCESSFULLY".format(customername=registration_data.RegistrationData.input_customer_name))
         time.sleep(4)
