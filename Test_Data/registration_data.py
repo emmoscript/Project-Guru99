@@ -40,7 +40,6 @@ class ElementLocators:
     xpath_of_password1 = '//input[@name="password"]'
     xpath_of_submit = '//input[@type="submit"]'
     xpath_of_success = '//td[@colspan="2"]//p[@class="heading3"]'
-
     xpath_of_generated_id = '//*[@id="customer"]/tbody/tr[4]/td[2]'
     xpath_of_new_account = '//a[@href="addAccount.php"]'
     xpath_of_customer_id = '//input[@name="cusid"]'
