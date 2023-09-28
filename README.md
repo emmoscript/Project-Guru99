@@ -17,6 +17,5 @@ There are two Folders,
 ### Execution Command
 ```
 pytest -v -s --capture=sys --html=C:\Users\test_result.html
-pytest -v -s --capture=sys --html=C:\Users\AT-Project-3_Swag_Labs\reports\test_report.html
 pytest -v -s --capture=sys --html=C:\Users\Project04\Project-Guru99\reports\test_report.html
 ```
