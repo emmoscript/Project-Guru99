@@ -11,7 +11,7 @@
 ```
 There are two Folders,
 1.Test_Codes # It consists of Test Files (i.e. test_login, test_pim)
-2.Test_Data # It consists of Test Data's (i.e. username, password, XPATH, ID, etc.,)
+2.Test_Data # It consists of Test Data (i.e. username, password, XPATH, ID, etc.,)
 ```
 
 ### Execution Command
