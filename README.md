@@ -17,5 +17,5 @@ There are two Folders,
 #### Execution Command
 ```
 pytest -v -s --capture=sys --html=C:\Users\test_result.html
-pytest -v -s --capture=sys --html=C:\Users\Project04\Project-Guru99\reports\test_report.html
+pytest -v -s --capture=sys --html=Path to save html files
 ```
