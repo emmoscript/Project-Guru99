@@ -7,8 +7,9 @@ This Guru99 project is to ensure that all the activities and functionalities of 
 2. Test Cases deal with home page feature
 
 #### Folder Structure
-1. Test_Codes # It consists of Test Files (i.e. test_login, test_pim)
-2. Test_Data # It consists of Test Data (i.e. username, password, XPATH, ID, etc.,)
+1. Test_Codes contains Test Files (i.e. test_login, test_pim, etc.,)
+2. Test_Data contains Test Data (i.e. username, password, XPATH, ID, etc.,)
+3. Config Files
 
 #### Execution Command
 pytest -v -s --capture=sys --html=C:\Users\test_result.html
