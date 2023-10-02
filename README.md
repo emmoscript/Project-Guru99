@@ -3,8 +3,8 @@
 This Guru99 project is to ensure that all the activities and functionalities of demo banking software run smoothly with no errors and remain protected. Banking software performs various functions like transferring and depositing funds, balance inquiry, transaction history, withdrawal and so on.
 #### Test Cases
 
-1. Test Cases dealing with login - 05 
-2. Test Cases dealing with Home - 03
+1. Test Cases deal with login page feature
+2. Test Cases deal with home page feature
 
 #### Folder Structure
 1. Test_Codes # It consists of Test Files (i.e. test_login, test_pim)
