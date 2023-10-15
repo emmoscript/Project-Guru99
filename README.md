@@ -12,6 +12,7 @@ This Guru99 project is to ensure that all the activities and functionalities of 
 3. Config Files
 
 #### Execution Command
-pytest -v -s --capture=sys --html=C:\Users\test_result.html
-pytest -v -s --capture=sys --html=Path to save html files
+```
+pytest -v -s --capture=sys --html=C:\Users\test_result.html (Path to save HTML reports)
+```
 
