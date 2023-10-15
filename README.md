@@ -1,6 +1,6 @@
 ## AT Project 4
 ### Guru99 - Demo Banking Site Automation Testing
-This Guru99 project is to ensure that all the features and functionalities of demo banking software run smoothly with a good user experience. Banking software performs various functions like transferring and depositing funds, balance inquiry, transaction history, withdrawal and so on.
+This Guru99 project is to ensure that all the features and functionalities of demo banking software run smoothly providing a good user experience. Banking software performs various functions like transferring and depositing funds, balance inquiry, transaction history, withdrawal and so on.
 
 #### Test Cases
 
