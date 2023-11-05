@@ -9,7 +9,9 @@ This Guru99 project is to ensure that all the features and functionalities of de
 #### POM Pattern
 1. Test Codes stores Test Files (i.e. test_login, test_pim, etc.,)
 2. Test Data stores Test Data (i.e. username, password, XPATH, ID, etc.,)
-3. Config Files
+3. Configuration Files
+4. Test Reports
+5. Excel Files
 
 #### Execution Command
 ```
