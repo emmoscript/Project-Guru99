@@ -6,7 +6,7 @@ This Guru99 project is to ensure that all the features and functionalities of de
 1. Test Cases deal with Login Page Feature
 2. Test Cases deal with Home Page Feature
 
-#### Folder Structure
+#### POM Pattern
 1. Test Codes contains Test Files (i.e. test_login, test_pim, etc.,)
 2. Test Data contains Test Data (i.e. username, password, XPATH, ID, etc.,)
 3. Config Files
