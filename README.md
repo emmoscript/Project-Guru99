@@ -3,7 +3,6 @@
 This Guru99 project is to ensure that all the features and functionalities of demo banking software run smoothly providing a good banking experience to end users. Banking software performs various functions like transferring and depositing funds, balance inquiry, transaction history, withdrawal and so on.
 
 #### Test Cases
-
 1. Test Cases deal with the Login Page Feature
 2. Test Cases deal with the Home Page Feature
 
