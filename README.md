@@ -7,8 +7,8 @@ This Guru99 project is to ensure that all the features and functionalities of de
 2. Test Cases deal with Home Page Feature
 
 #### POM Pattern
-1. Test Codes contains Test Files (i.e. test_login, test_pim, etc.,)
-2. Test Data contains Test Data (i.e. username, password, XPATH, ID, etc.,)
+1. Test Codes stores Test Files (i.e. test_login, test_pim, etc.,)
+2. Test Data stores Test Data (i.e. username, password, XPATH, ID, etc.,)
 3. Config Files
 
 #### Execution Command
