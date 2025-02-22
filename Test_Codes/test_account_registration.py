@@ -1,93 +1,102 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from Test_Data import registration_data
 import pytest
 
 
-class TestAccountReg():
+class TestAccountReg:
     url = "https://demo.guru99.com/V4/index.php"
-    
-    # Launching driver for running the Python Tests
-    @pytest.fixture
-    def launch_driver(self):
+
+    @pytest.fixture(autouse=True)
+    def setup_method(self):
+        """Setup and teardown for Selenium WebDriver"""
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.implicitly_wait(8)
         yield
-        self.driver.close()
+        self.driver.quit()
 
-    def test_account_reg(self, launch_driver):
+    def test_account_reg(self):
         self.driver.get(self.url)
 
-        # login to webpage using username and password
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_username).send_keys(registration_data.RegistrationData.input_username)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_password).send_keys(registration_data.RegistrationData.input_password)
+        # Login
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_username).send_keys(
+            registration_data.RegistrationData.input_username
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_password).send_keys(
+            registration_data.RegistrationData.input_password
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_loginbutton).click()
 
-        # click login button
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_loginbutton).click()
+        # Click en "Nuevo Cliente"
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_new_customer).click()
 
-        # click new customer tab
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_new_customer).click()
+        # Rellenar formulario
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_customer_name).send_keys(
+            registration_data.RegistrationData.input_customer_name
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_gender).click()
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_date_of_birth).send_keys(
+            registration_data.RegistrationData.input_dob
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_address).send_keys(
+            registration_data.RegistrationData.input_address
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_city).send_keys(
+            registration_data.RegistrationData.input_city
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_state).send_keys(
+            registration_data.RegistrationData.input_state
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_pin).send_keys(
+            registration_data.RegistrationData.input_pin
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_mobile_number).send_keys(
+            registration_data.RegistrationData.input_mobile_number
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_email).send_keys(
+            registration_data.RegistrationData.input_email
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_password1).send_keys(
+            registration_data.RegistrationData.input_password1
+        )
+
+        # Enviar formulario
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_submit).click()
+
+        # Validar registro exitoso
+        wait = WebDriverWait(self.driver, 10)
+        success_message = wait.until(
+            EC.presence_of_element_located((By.XPATH, registration_data.ElementLocators.xpath_of_success))
+        )
+        assert success_message.text == "Customer Registered Successfully!!!"
+        print(f"SUCCESS # CUSTOMER {registration_data.RegistrationData.input_customer_name} REGISTERED SUCCESSFULLY")
+
+        # Obtener ID del cliente generado
+        generated_customer_id = self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_generated_id).text
+
+        # Crear nueva cuenta
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_new_account).click()
         
-        # click skip ads button
-        # frame1 = self.driver.find_element(by=By.ID, value=registration_data.RegistrationData.frame1)
-        # self.driver.switch_to.frame(frame1)
-        # frame2 = self.driver.find_element(by=By.ID, value=registration_data.RegistrationData.frame2)
-        # self.driver.switch_to.frame(frame2)
-        # self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_ad_close).click()
-        # self.driver.switch_to.default_content()
+        # Usar el ID generado en lugar del ID estático
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_customer_id).send_keys(
+            generated_customer_id  # Changed this line to use the generated ID
+        )
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_account_type).click()
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_current_account).click()
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_initial_deposit).send_keys(
+            registration_data.AccountData.input_initial_deposit
+        )
 
-        # adding customer credentials required
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_customer_name).send_keys(registration_data.RegistrationData.input_customer_name)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_gender).click()
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_date_of_birth).send_keys(registration_data.RegistrationData.input_dob)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_address).send_keys(registration_data.RegistrationData.input_address)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_city).send_keys(registration_data.RegistrationData.input_city)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_state).send_keys(registration_data.RegistrationData.input_state)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_pin).send_keys(registration_data.RegistrationData.input_pin)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_mobile_number).send_keys(registration_data.RegistrationData.input_mobile_number)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_email).send_keys(registration_data.RegistrationData.input_email)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_password1).send_keys(registration_data.RegistrationData.input_password1)
+        # Enviar formulario de cuenta
+        self.driver.find_element(By.XPATH, registration_data.ElementLocators.xpath_of_submit1).click()
 
-        # click submit
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_submit).click()
-
-        # verify successful customer registration
-        result = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_success)
-        response = result.text
-        assert response == "Customer Registered Successfully!!!"
-        print("SUCCESS # CUSTOMER {customername} REGISTERED SUCCESSFULLY".format(customername=registration_data.RegistrationData.input_customer_name))
-
-        # saving customer id as variable to parse into customer id data required below
-        gen_id = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_generated_id)
-        generated_customer_id = gen_id.text
-
-        # adding a new account inside our customer
-        # click the new account tab
-        click_new_account = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_new_account).click()
-
-        # click skip ads button (ignore if it is not necessary)
-        # frame1 = driver.find_element(By.ID, "google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0")
-        # driver.switch_to.frame(frame1)
-        # frame2 = driver.find_element(By.ID, "ad_iframe")
-        # driver.switch_to.frame(frame2)
-        # driver.find_element(By.XPATH, "//div[@id='dismiss-button']/div/span").click()
-        # driver.switch_to.default_content()
-
-        # adding account credentials required
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_customer_id).send_keys(registration_data.AccountData.customer_id)
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_account_type).click()
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_current_account).click()
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_initial_deposit).send_keys(registration_data.AccountData.input_initial_deposit)
-
-        # click submit
-        self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_submit1).click()
-
-        # verify successful customer registration
-        xpath_of_account_successful = '//p[@class="heading3"]'
-        result = self.driver.find_element(by=By.XPATH, value=registration_data.ElementLocators.xpath_of_account_successful)
-        response = result.text
-        assert response == "Account Generated Successfully!!!"
+        # Validar creación de cuenta con espera explícita
+        wait = WebDriverWait(self.driver, 10)
+        success_message = wait.until(
+            EC.presence_of_element_located((By.XPATH, registration_data.ElementLocators.xpath_of_account_successful))
+        )
+        assert success_message.text == "Account Generated Successfully!!!"
         print("SUCCESS # ACCOUNT GENERATED SUCCESSFULLY")
-
-

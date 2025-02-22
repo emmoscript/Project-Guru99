@@ -3,23 +3,24 @@
 
 # Python Class for Username and Password
 class RegistrationData:
-    input_username = "mngr507659"
-    input_password = "sAdebed"
-    input_customer_name = "Guru"
-    input_dob = "05011992"
-    input_address = "25 Main street"
-    input_city = "Chennai"
-    input_state = "Tamilnadu"
-    input_pin = "600052"
-    input_mobile_number  = "26867856"
-    input_email = "gurub@k78516.com"
-    input_password1 = "basil"
+    input_username = "mngr611159"
+    input_password = "EnYdEga"
+    input_customer_name = "Raul Maldonado"
+    input_dob = "06062001"
+    input_address = "Calle Ejemplo"
+    input_city = "Casablanca"
+    input_state = "Marrakech"
+    input_pin = "452156"
+    input_mobile_number  = "5678998754"
+    input_email = "dfb6ff@fhjf.com"
+    input_password1 = "qwerty12345"
     frame1 = "google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0"
     frame2 = "ad_iframe"
 
 class AccountData:
     customer_id = "generated_customer_id"
-    input_initial_deposit = "600"
+    input_initial_deposit = "2000"
+    account_number = "generated_account_number"
 
 # Python Class for Selenium Selectors
 class ElementLocators:
@@ -48,4 +49,8 @@ class ElementLocators:
     xpath_of_initial_deposit = '//input[@name="inideposit"]'
     xpath_of_submit1 = '//input[@name="button2"]'
     xpath_of_account_successful = '//p[@class="heading3"]'
+    xpath_of_balance_enquiry = '//a[@href="BalEnqInput.php"]'
+    xpath_of_account_number = '//input[@name="accountno"]'
+    xpath_of_balance_submit = '//input[@name="AccSubmit"]'
+    xpath_of_balance_result = '//td[@colspan="2"]//p[@class="heading3"]'
 
